@@ -1,0 +1,79 @@
+[
+      {
+            "name":"Event360",
+            "img1":"https://ibb.co/ZdY1JXY",
+            "img2":"https://ibb.co/12zS9gV",
+            "img3":"https://ibb.co/KN0sbsy",
+            "img4":"https://ibb.co/VQ2Zfff",
+            "techs":["ReactJs","Typescript","TailwindCSS","Framer Motion","SwiperJs","Tanstack Query"],
+            "live":"https://event360-client-iota.vercel.app/",
+            "github":"https://github.com/tofail-ahmed/event-360-client"
+      },
+      {
+            "name":"Relief Aid",
+            "img1":"https://ibb.co/mvZcF21",
+            "img2":"https://ibb.co/HGGXmH1",
+            "img3":"https://ibb.co/k6LPS7w",
+            "img4":"https://ibb.co/cJTYKCs",
+            "techs":["ReactJs","Typescript","TailwindCSS","Framer Motion","AOS","Slicker","Redux"],
+            "live":"https://relief-aid-client.vercel.app/",
+            "github":"https://github.com/tofail-ahmed/relief-aid-client"
+      },
+      
+      
+     
+      
+      
+      
+
+      {
+            "name":"Athletic Excel",
+            "img1":"https://ibb.co/87XcfmW",
+            "img2":"https://ibb.co/HKKTdLj",
+            "img3":"https://ibb.co/3vTmJS9",
+            "img4":"https://ibb.co/2qz6kLP",
+            "techs":["ReactJs","TailwindCSS","Javascript","DaisyUI","React Hook Form","Firebase"],
+            "live":"https://athletic-excel.web.app/",
+            "github":"https://github.com/tofail-ahmed/athletic-excel-client"
+      },
+      {
+            "name":"Campus Guru",
+            "img1":"https://ibb.co/VjpmKLW",
+            "img2":"https://ibb.co/4Pdjv5D",
+            "img3":"https://ibb.co/PYY5V8g",
+            "img4":"https://ibb.co/f4DTKDQ",
+            "techs":["ReactJs","TailwindCSS","Javascript","DaisyUI","Firebase","Paralax"],
+            "live":"https://college-client-adeee.web.app/",
+            "github":"https://github.com/tofail-ahmed/college-client"
+      },
+      {
+            "name":"Portfolio",
+            "img1":"https://ibb.co/8dTbxST",
+            "img2":"https://ibb.co/QXwRqms",
+            "img3":"https://ibb.co/k0shHK0",
+            "img4":"https://ibb.co/8dTbxST",
+            "techs":["NextJs","TailwindCSS","Javascript","Framer Motion","EmailJs","Swiper","AOS"],
+            "live":"https://atofail.vercel.app/",
+            "github":"https://atofail.vercel.app/"
+      },
+      {
+            "name":"Fytobyte",
+            "img1":"https://ibb.co/4Mxs9P9",
+            "img2":"https://ibb.co/GnNJ88y",
+            "img3":"https://ibb.co/S6rbGcW",
+            "img4":"https://ibb.co/GthDTqk",
+            "techs":["NextJs", "Javscript", "Redux", "TailwindCSS", "DaisyUI", "ParticleJs"],
+            "live":"https://fyto-client.vercel.app/",
+            "github":"https://github.com/tofail-ahmed/next-practice"
+      },
+      {
+            "name":"Kiddo Valley",
+            "img1":"https://ibb.co/ckM5YFC",
+            "img2":"https://ibb.co/MRy9wSk",
+            "img3":"https://ibb.co/gRzWpkP",
+            "img4":"https://ibb.co/wLq6FxR",
+            "techs":["ReactJs","TailwindCSS","Javascript","DaisyUI","AOS","Firebase","Toastify"],
+            "live":"https://kiddo-valley.web.app/",
+            "github":"https://github.com/tofail-ahmed/kiddo-valley-client"
+      }
+]
