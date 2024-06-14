@@ -3,7 +3,7 @@ const app = express()
 const port = process.env.PORT || 5000;
 const cors = require("cors");
 require("dotenv").config();
-const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 // Middleware
 app.use(cors());
@@ -14,11 +14,8 @@ const uri =
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 async function run() {
@@ -59,11 +56,11 @@ async function run() {
             message: "Project not found",
           });
         }
-        res.status(200).json({ 
+        res.status(200).json({
           success: true,
-          message: 'Project retrieved successfully',
-          data: singleProject
-      });
+          message: "Project retrieved successfully",
+          data: singleProject,
+        });
       } catch (error) {
         console.error("Error fetching good:", error);
         res.status(500).json({
@@ -139,22 +136,24 @@ async function run() {
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
+    app.get("/", (req, res) => {
+      try {
+        res.send("Hello from Nextfolio server!1");
+      } catch (error) {
+        console.error("Error occurred:", error);
+        res.status(500).send("Internal Server Error");
+      }
+    });
+
+    app.listen(port, () => {
+      console.log(`nextfolio server listening on porttttt ${port}`);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
-    //     await client.close();
+    // await client.close();
   }
 }
 run().catch(console.dir);
 
-app.get("/", (req, res) => {
-  try {
-    res.send("Hello from Nextfolio server!1");
-  } catch (error) {
-    console.error("Error occurred:", error);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
-app.listen(port, () => {
-  console.log(`nextfolio server listening on porttttt ${port}`)
-})
+//! https://forms.gle/ogoAtJ44nubn9Kid6
+//! https://forms.gle/ogoAtJ44nubn9Kid6
