@@ -102,11 +102,11 @@ async function run() {
 
     app.post("/api/v1/blog",async(req,res)=>{
       try {
-        const {name,image,url}=req.body;
+        const {name,image,url,overview}=req.body;
         const newBlog={
-          name,image,url
+          name,image,url,overview
         };
-        console.log(name,image,url)
+        console.log(name,image,url,overview)
         const result=await blog.insertOne(newBlog);
         res.status(200).json({
           success: true,
@@ -139,6 +139,55 @@ app.get("/api/v1/blog",async(req,res)=>{
     }); 
   }
 })
+
+
+app.put("/api/v1/blog/:id",async(req,res)=>{
+  try {
+    const id=req.params.id;
+    console.log(id)
+    const {name,image,url,overview}=req.body;
+    const filter={_id:new ObjectId(id)};
+    const updatedBlog={
+      $set:{
+        name,image,url
+      }
+    };
+    const result=await blog.updateOne(filter,updatedBlog);
+    res.status(200).json({
+      success: true,
+      message: "Blog Updated successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+})
+app.delete("/api/v1/project/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const query = { _id: new ObjectId(id) };
+    const result = await project.deleteOne(query);
+    if (result.deletedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "Project not found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "Project deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting project:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+});
 
     app.put("/api/v1/projects/:id", async (req, res) => {
       try {
