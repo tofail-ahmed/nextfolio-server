@@ -189,6 +189,30 @@ app.delete("/api/v1/project/:id", async (req, res) => {
   }
 });
 
+app.delete("/api/v1/blog/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const query = { _id: new ObjectId(id) };
+    const result = await blog.deleteOne(query);
+    if (result.deletedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        message: "Blog not found",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "Blog deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting blog:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+});
+
     app.put("/api/v1/projects/:id", async (req, res) => {
       try {
         const id = req.params.id;
