@@ -25,6 +25,7 @@ async function run() {
 
     const db = client.db("nextfolio");
     const project = db.collection("projects");
+    const blog=db.collection("blogs")
 
     app.get("/api/v1/projects", async (req, res) => {
       try {
@@ -91,13 +92,38 @@ async function run() {
           data: newProject,
         });
       } catch (error) {
-        console.error("Error fetching users:", error);
+        console.error("Error posting project:", error);
         res.status(500).json({
           success: false,
           message: "Internal server error",
         });
       }
     });
+
+    app.post("/api/v1/blog",async(req,res)=>{
+      try {
+        const {name,image,url}=req.body;
+        const newBlog={
+          name,image,url
+        };
+        console.log(name,image,url)
+        const result=await blog.insertOne(newBlog);
+        res.status(200).json({
+          success: true,
+          message: "New Blog found successfully",
+          data: newBlog,
+        });
+      } catch (error) {
+        console.error("Error posting blog:", error);
+        res.status(500).json({
+          success: false,
+          message: "Internal server error",
+        });
+      }
+    })
+
+
+// app.get("api/v1/blogs")
 
     app.put("/api/v1/projects/:id", async (req, res) => {
       try {
@@ -155,5 +181,3 @@ async function run() {
 }
 run().catch(console.dir);
 
-//! https://forms.gle/ogoAtJ44nubn9Kid6
-//! https://forms.gle/ogoAtJ44nubn9Kid6
