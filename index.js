@@ -110,7 +110,7 @@ async function run() {
         const result=await blog.insertOne(newBlog);
         res.status(200).json({
           success: true,
-          message: "New Blog found successfully",
+          message: "New Blog created successfully",
           data: newBlog,
         });
       } catch (error) {
@@ -123,7 +123,22 @@ async function run() {
     })
 
 
-// app.get("api/v1/blogs")
+app.get("/api/v1/blog",async(req,res)=>{
+  try {
+    const blogs=await blog.find().toArray();
+    res.status(200).json({
+      success: true,
+      message: "Blogs retrieved successfully",
+      data: blogs,
+    });
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    }); 
+  }
+})
 
     app.put("/api/v1/projects/:id", async (req, res) => {
       try {
